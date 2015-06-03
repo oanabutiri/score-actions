@@ -1,13 +1,10 @@
 package com.iconclude.dharma.commons.security.ssh;
 
-import com.iconclude.dharma.commons.security.krb5.Krb5Login;
-import com.iconclude.dharma.commons.security.krb5.Krb5Utils;
 import com.iconclude.dharma.commons.util.Dharma;
 import com.iconclude.dharma.commons.util.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.security.auth.Subject;
 import javax.security.auth.kerberos.KerberosTicket;
 import javax.security.auth.login.LoginContext;
 import java.util.Collection;
@@ -108,35 +105,6 @@ public class DefaultUserInfoProvider implements SSHUserInfoProvider {
             result[i] = passwd;
         }
         return result;
-    }
-
-    /**
-     * This callback gets invoked when using GSSAPI-with-MIC authentication with the Kerberos mechanism; when that
-     * happens, we must somehow provide a subject on whose behalf the connection is being made.
-     *
-     * @see com.jcraft.jsch.UserInfo#getSubject()
-     */
-    public Subject getSubject() {
-        Subject subj = Krb5Utils.getSubjectForTickets(username, tickets);
-        if (subj == null) {
-            krbLogin = performKerberosLogin(username, passwd);
-            return (krbLogin == null ? null : krbLogin.getSubject());
-        }
-        return subj;
-    }
-
-    private LoginContext performKerberosLogin(String userToImpersonate, String password) {
-        try {
-            return Krb5Login.login(userToImpersonate, password);
-        } catch (Throwable e) {
-            if (logger.isDebugEnabled()) {
-                logger.error("could not obtain Kerberos login context for user " + userToImpersonate + ", reason: " + e, //$NON-NLS-1$ //$NON-NLS-2$
-                        e);
-            } else {
-                logger.error("could not obtain Kerberos login context for user " + userToImpersonate + ", reason: " + e); //$NON-NLS-1$ //$NON-NLS-2$
-            }
-            return null;
-        }
     }
 
     public void close() {

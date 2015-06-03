@@ -25,18 +25,8 @@ public abstract class SSHOperation<SessCreatorT extends SSHSessionCreator,
     public static final String HOST = "Host";  //$NON-NLS-1$
     public static final String USERNAME = "User"; //$NON-NLS-1$
     public static final String PASSWORD = "Password"; //$NON-NLS-1$
-    public static final String PTY = "Pty"; // optional //$NON-NLS-1$
     public static final String PK_FILE = "PKFile"; // optional //$NON-NLS-1$
-    public static final String COMMAND = "Command"; //$NON-NLS-1$
-    public static final String ARGS = "Args"; // optional //$NON-NLS-1$
-    public static final String ENV = "Env"; // optional //$NON-NLS-1$
     public static final String TIMEOUT = "Timeout"; // optional //$NON-NLS-1$
-    public static final String CHARACTERSET = "Characterset"; // optional //$NON-NLS-1$
-
-    /**
-     * optional, of type DharmaAuthentication
-     */
-    public static final String AUTH = "Auth";  //$NON-NLS-1$
 
     /**
      * optional, of type Collection of KerberosTicket

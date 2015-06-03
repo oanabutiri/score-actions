@@ -81,10 +81,6 @@ public class Connection {
 	private ChannelSftp secureChannel;
 	private int timeout;
 	
-	public int getTimeout(){
-		return timeout;
-	}
-	
 	public void setTimeout (int timeout){
 		this.timeout = timeout;
 	}
@@ -97,24 +93,12 @@ public class Connection {
 		this.host = host;
 	}
 	
-	public String getPassword() {
-		return password;
-	}
-	
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	public String getPrivateKey() {
-		return privateKey;
-	}
-	
 	public void setPrivateKey(String privateKey) {
 		this.privateKey = privateKey;
-	}
-	
-	public String getUserName() {
-		return userName;
 	}
 	
 	public void setUserName(String userName) {
@@ -125,14 +109,6 @@ public class Connection {
 		return secureChannel;
 	}
 	
-	public Session getSession() {
-		return session;
-	}
-
-    public int getPort() {
-        return port;
-    }
-
     public void setPort(int port) {
         if(port >=0 && port <= 65535){
             this.port = port;

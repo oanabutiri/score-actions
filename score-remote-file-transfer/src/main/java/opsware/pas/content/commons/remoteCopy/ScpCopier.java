@@ -20,9 +20,7 @@ import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
-import javax.security.auth.kerberos.KerberosTicket;
 import java.io.*;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -107,7 +105,6 @@ public class ScpCopier extends SimpleCopier{
 
 class SCPLocalOperationGet extends SSHOperation<DefaultSSHSessionCreator, SCPLocalProcessor> {
 
-    Collection<KerberosTicket> tickets;
     private String srcHost;
     private int port;
 	private String srcUsername;
@@ -166,9 +163,6 @@ class SCPLocalProcessor extends SSHChannelProcessor {
 	protected long timeout;
 	OutputStream out;
 	InputStream in;
-    ChannelExec channel2;
-    OutputStream out2;
-    InputStream in2;
     SCPLocalOperationGet action;
 	ScpCopier parent;
     private String srcPath;
@@ -521,7 +515,6 @@ class LocalSCPProcessor extends SSHChannelProcessor {
 
 class LocalSCPOperationPut extends SSHOperation<DefaultSSHSessionCreator, LocalSCPProcessor> {
 
-    Collection<KerberosTicket> tickets;
     private String destHost;
     private int port;
 	private String destUsername;

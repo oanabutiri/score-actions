@@ -32,31 +32,6 @@ public class Address {
     String bareHost; // host, stripped of any trailing colon and port number
 
     /**
-     * Single-argument constructor. Note that host may contain a port (e.g.
-     * www.hp.com:22)
-     *
-     * @param hostWithOptionalPort
-     */
-    public Address(String hostWithOptionalPort) {
-        this(hostWithOptionalPort, null);
-    }
-
-    /**
-     * Constructor
-     * @param hostWithOptionalPort
-     * @param portFirstOption
-     */
-    public Address(String hostWithOptionalPort, String portFirstOption) {
-        if (hostWithOptionalPort != null)
-            this.hostWithOptionalPort = hostWithOptionalPort;
-
-        if (portFirstOption != null && !portFirstOption.isEmpty())
-            this.inputPort = Integer.parseInt(portFirstOption);
-
-        parse();
-    }
-
-    /**
      * Constructor
      * @param hostWithOptionalPort
      * @param portFirstOption
@@ -69,13 +44,6 @@ public class Address {
             this.inputPort = portFirstOption;
 
         parse();
-    }
-
-    public Address(String hostWithOptionalPort, int portFirstOption, int defaultPort) {
-        this(hostWithOptionalPort, portFirstOption);
-        if (!isPortSet()) {
-            resolvedPort = defaultPort;
-        }
     }
 
     /**
@@ -92,18 +60,6 @@ public class Address {
      */
     public int getPort() {
         return resolvedPort;
-    }
-
-    public boolean isPortSet() {
-        return resolvedPort != PORT_NOT_SET;
-    }
-
-    /**
-     * Return whether the host is of IPv6 format or not.
-     * @return
-     */
-    public boolean isIPV6Literal() {
-        return isIPV6Literal;
     }
 
     void parse() {

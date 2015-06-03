@@ -16,17 +16,4 @@ public class CopierFactory {
 		executorMap.put(copiers.sftp, SftpCopier.class);
         executorMap.put(copiers.smb, SmbCopier.class);
 	}
-	
-	public static ICopier getExecutor(String name) throws Exception{
-		try{
-			return getExecutor(copiers.valueOf(name));
-        }
-        catch (Exception e){
-        	throw (new Exception("Protocol "+name+" not supported!"));
-        }
-	}
-	
-	public static ICopier getExecutor(copiers name) throws Exception{
-		return executorMap.get(name).newInstance();
-	}
 }

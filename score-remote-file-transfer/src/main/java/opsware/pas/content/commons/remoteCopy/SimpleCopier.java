@@ -87,37 +87,4 @@ public abstract class SimpleCopier implements ICopier {
 	public String getCustomArgument(simpleArgument name){
 		throw new UnsupportedOperationException(getProtocolName()+" does not support "+name.name());
 	}
-
-	/**
-	 *
-	 * @param host
-	 * @param defaultPort
-	 * @return
-	 */
-	public static int resolvePort(String host, int defaultPort){
-		if (host.contains(":")){
-			int portNo = Integer.parseInt(host.split(":")[1]);
-			if (portNo < 0 || portNo > 65535) {
-				throw new IllegalArgumentException("invalid port number: " + portNo);
-			}
-			return portNo;
-		}
-		else {
-			return defaultPort;
-		}
-	}
-
-	/**
-	 *
-	 * @param host
-	 * @return
-	 */
-	public static String resolveHost(String host){
-		if (host.contains(":")) {
-			return host.split(":")[0];
-		} else {
-			return host;
-		}
-	}
-
 }

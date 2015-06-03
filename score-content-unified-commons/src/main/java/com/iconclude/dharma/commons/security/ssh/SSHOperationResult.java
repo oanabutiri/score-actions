@@ -22,10 +22,6 @@ public class SSHOperationResult {
         codeInt = code;
     }
 
-    public String getOutput() {
-        return output;
-    }
-
     public void setOutput(String out) {
         output = out;
     }
@@ -48,9 +44,5 @@ public class SSHOperationResult {
 
     public boolean isTimedOut() {
         return timedOut;
-    }
-
-    public void setTimedOut(boolean timed) {
-        timedOut = timed;
     }
 }

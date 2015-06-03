@@ -191,14 +191,6 @@ public class FtpCopier extends SimpleCopier{
 		checkReply("put " + remoteFilePath, ftp);
 	}
 
-	protected int getReplyCode() {
-		return _replyCode;
-	}
-
-	protected String getSessionLog() {
-		return _sessionLog.toString();
-	}
-
 	protected void setImageFileType(FTPClient ftp) throws IOException, Exception {
 		//int replyCode = ftp.type(FTPClient.IMAGE_FILE_TYPE);
 		ftp.setFileType(FTPClient.BINARY_FILE_TYPE);

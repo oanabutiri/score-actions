@@ -2,21 +2,9 @@ package com.opsware.pas.content.commons.remoteCopy.sftp;
 
 import com.jcraft.jsch.UserInfo;
 
-import javax.security.auth.Subject;
-
 public  class MyUserInfo implements UserInfo{
 
-    /**
-     * This callback gets invoked when using GSSAPI-with-MIC authentication with the Kerberos mechanism; when that
-     * happens, we must somehow provide a subject on whose behalf the connection is being made.
-     * 
-     * @see UserInfo#getSubject()
-     */
-    public Subject getSubject() {
-        return null;
-    }
-
-	public String getPassword(){ 
+	public String getPassword(){
 		return passwd; 
 		}
 
@@ -59,25 +47,8 @@ public  class MyUserInfo implements UserInfo{
 		this.privateKey = privateKey;
 	}
 
-
-	public boolean isPromptPassphrase() {
-		return promptPassphrase;
-	}
-
-	public void setPromptPassphrase(boolean promptPassphrase) {
-		this.promptPassphrase = promptPassphrase;
-	}
-
-	public boolean isPromptPassword() {
-		return promptPassword;
-	}
-
 	public void setPromptPassword(boolean promptPassword) {
 		this.promptPassword = promptPassword;
-	}
-
-	public boolean isPromptYesNo() {
-		return promptYesNo;
 	}
 
 	public void setPromptYesNo(boolean promptYesNo) {
@@ -91,12 +62,6 @@ public  class MyUserInfo implements UserInfo{
 	public String getPassphrase() {
 		return Passphrase;
 	}
-
-
-	public String getPasswd() {
-		return passwd;
-	}
-
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;

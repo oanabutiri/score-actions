@@ -56,19 +56,6 @@ public class LocalizedStringLookup {
     }
 
     /**
-     * Lookup a message without parameters.  The key must start with the bundle name.  For example, if your
-     * basic language file is CentralMessages.properties and it contains a property "my.key.name=hello" then
-     * using a key of "Central.my.key.name" will return "hello" for english.
-     *
-     * @param msgKey is the key starting with the bundle name
-     * @param locale TODO
-     * @return the localized message
-     */
-    public static String lookupMsg(String msgKey, Locale locale) {
-        return lookupMsg(msgKey, (Object[]) null, locale);
-    }
-
-    /**
      * Lookup a message with parameters.  The key must start with the bundle name.  For example, if your
      * basic language file is CentralMessages.properties and it contains a property "my.key.name={0} world" then
      * calling Dharma.msg("Central.my.key.name", "Hello"); will return "hello world" for english.
@@ -79,20 +66,6 @@ public class LocalizedStringLookup {
      */
     public static String lookupMsg(String msgKey, Object[] msgParams) {
         return lookupMsg(msgKey, msgParams, (String) null);
-    }
-
-    /**
-     * Lookup a message with parameters.  The key must start with the bundle name.  For example, if your
-     * basic language file is CentralMessages.properties and it contains a property "my.key.name={0} world" then
-     * calling Dharma.msg("Central.my.key.name", "Hello"); will return "hello world" for english.
-     *
-     * @param msgKey    is the key starting with the bundle name
-     * @param msgParams is a list of parameters
-     * @param locale    TODO
-     * @return the localized message
-     */
-    public static String lookupMsg(String msgKey, Object[] msgParams, Locale locale) {
-        return lookupMsg(msgKey, msgParams, (String) null, locale);
     }
 
     /**

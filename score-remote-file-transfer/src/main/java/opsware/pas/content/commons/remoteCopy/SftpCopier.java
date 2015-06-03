@@ -28,11 +28,7 @@ public class SftpCopier extends SimpleCopier{
 	public final String DEFAULT_CHARACTERSETNAME = "UTF-8";
 	protected String characterSetName = DEFAULT_CHARACTERSETNAME;	
 	
-	File putTmp;
-
-
 	public SftpCopier(){
-
 	}
 
 	/**
