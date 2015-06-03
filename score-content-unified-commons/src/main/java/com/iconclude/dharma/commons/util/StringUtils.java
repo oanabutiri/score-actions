@@ -13,6 +13,16 @@ public class StringUtils {
     public StringUtils() {
     }
 
+    /**
+     * Checks if a supplied String is null or empty.
+     *
+     * @param s String to check
+     * @return true if supplied string is null or empty
+     */
+    public static boolean isNull(String s) {
+        return s == null || s.isEmpty();
+    }
+
     public static boolean isEmpty(String s) {
         return (s == null || s.length() == 0);
     }

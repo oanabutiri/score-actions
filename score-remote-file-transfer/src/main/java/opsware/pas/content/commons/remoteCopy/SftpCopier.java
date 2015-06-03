@@ -3,7 +3,7 @@ package opsware.pas.content.commons.remoteCopy;
 import com.hp.oo.content.commons.util.Address;
 import com.jcraft.jsch.Session;
 import com.opsware.pas.content.commons.remoteCopy.sftp.SecureFtpAction;
-import com.opsware.pas.content.commons.util.StringUtils;
+import com.iconclude.dharma.commons.util.StringUtils;
 
 import java.io.File;
 

@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 
 
 import com.hp.oo.content.commons.util.Address;
-import com.opsware.pas.content.commons.util.StringUtils;
+import com.iconclude.dharma.commons.util.StringUtils;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
@@ -206,7 +206,7 @@ public class FtpCopier extends SimpleCopier{
 	protected FTPClient connect(String server, int portNumber) throws SocketException, IOException,
 	Exception {
 		FTPClient ftp = new FTPClient();
-		if (!StringUtils.isNull(characterSetName)) 
+		if (!StringUtils.isNull(characterSetName))
 			ftp.setControlEncoding(characterSetName);
 		try {
 			ftp.connect(InetAddress.getByName(server), portNumber);
