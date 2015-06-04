@@ -9,7 +9,7 @@ package opsware.pas.content.commons.remoteCopy;
  * @version  2.1, 19 May 2008, modified by Cristina Nistor
  */
 
-import com.opsware.pas.content.commons.FSUtil;
+import opsware.pas.content.commons.FSUtil;
 
 import java.io.File;
 

@@ -2,7 +2,7 @@
  * Created on May 23, 2006
  *
  */
-package com.iconclude.dharma.commons.util;
+package io.cloudslang.content.rft.utils;
 
 // TODO this was moved here from Central project because of the need to access the product names,
 // and it is quite Central/Studio specific...

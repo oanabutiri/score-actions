@@ -2,13 +2,13 @@
  * Copyright (c) iConclude 2004-2006
  * All rights reserved.
  */
-package com.iconclude.dharma.commons.security.ssh;
+package io.cloudslang.content.rft.ssh;
 
-import com.iconclude.dharma.commons.exception.DharmaException;
-import com.iconclude.dharma.commons.util.CollectionUtils;
-import com.iconclude.dharma.commons.util.Dharma;
-import com.iconclude.dharma.commons.util.Pair;
-import com.iconclude.dharma.commons.util.StringUtils;
+import io.cloudslang.content.rft.exception.DharmaException;
+import io.cloudslang.content.rft.utils.CollectionUtils;
+import io.cloudslang.content.rft.utils.Dharma;
+import io.cloudslang.content.rft.utils.Pair;
+import io.cloudslang.content.rft.utils.StringUtils;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;

@@ -1,6 +1,6 @@
 package io.cloudslang.content.rft.service;
 
-import com.iconclude.dharma.commons.util.StringUtils;
+import io.cloudslang.content.rft.utils.StringUtils;
 import io.cloudslang.content.rft.utils.RemoteCopyInputs;
 import io.cloudslang.content.rft.utils.RemoteCopyOutputs;
 import opsware.pas.content.commons.remoteCopy.CopierFactory;

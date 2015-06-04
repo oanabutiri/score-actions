@@ -9,13 +9,13 @@ package opsware.pas.content.commons.remoteCopy;
  * @version  2.2, 19 May 2008, modified by Cristina Nistor
  */
 
-import com.hp.oo.content.commons.util.Address;
-import com.iconclude.dharma.commons.exception.DharmaException;
-import com.iconclude.dharma.commons.security.ssh.DefaultSSHSessionCreator;
-import com.iconclude.dharma.commons.security.ssh.SSHChannelProcessor;
-import com.iconclude.dharma.commons.security.ssh.SSHOperation;
-import com.iconclude.dharma.commons.security.ssh.SSHOperationResult;
-import com.iconclude.dharma.commons.util.StringUtils;
+import io.cloudslang.content.rft.utils.Address;
+import io.cloudslang.content.rft.exception.DharmaException;
+import io.cloudslang.content.rft.ssh.DefaultSSHSessionCreator;
+import io.cloudslang.content.rft.ssh.SSHChannelProcessor;
+import io.cloudslang.content.rft.ssh.SSHOperation;
+import io.cloudslang.content.rft.ssh.SSHOperationResult;
+import io.cloudslang.content.rft.utils.StringUtils;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;

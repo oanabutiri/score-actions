@@ -2,7 +2,7 @@
  * Created on Oct 27, 2005 by statu
  * Updated 4/3/08 by bmoeller
  */
-package com.iconclude.dharma.commons.util;
+package io.cloudslang.content.rft.utils;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

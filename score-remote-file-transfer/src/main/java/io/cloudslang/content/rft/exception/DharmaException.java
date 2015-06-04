@@ -2,7 +2,7 @@
  * Created on Jan 30, 2006
  *
  */
-package com.iconclude.dharma.commons.exception;
+package io.cloudslang.content.rft.exception;
 
 /**
  * @author octavian

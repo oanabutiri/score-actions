@@ -1,4 +1,4 @@
-package com.opsware.pas.content.commons;
+package opsware.pas.content.commons;
 
 import java.io.File;
 import java.io.FileInputStream;

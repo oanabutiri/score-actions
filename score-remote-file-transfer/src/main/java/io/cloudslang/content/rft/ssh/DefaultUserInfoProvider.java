@@ -1,7 +1,7 @@
-package com.iconclude.dharma.commons.security.ssh;
+package io.cloudslang.content.rft.ssh;
 
-import com.iconclude.dharma.commons.util.Dharma;
-import com.iconclude.dharma.commons.util.StringUtils;
+import io.cloudslang.content.rft.utils.Dharma;
+import io.cloudslang.content.rft.utils.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

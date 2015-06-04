@@ -1,4 +1,4 @@
-package com.opsware.pas.content.commons.remoteCopy.sftp;
+package opsware.pas.content.commons.remoteCopy.sftp;
 
 import com.jcraft.jsch.UserInfo;
 

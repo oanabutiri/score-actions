@@ -1,6 +1,6 @@
 package opsware.pas.content.commons.remoteCopy;
 
-import com.hp.oo.content.commons.util.Address;
+import io.cloudslang.content.rft.utils.Address;
 import jcifs.smb.NtlmPasswordAuthentication;
 import jcifs.smb.SmbFile;
 import jcifs.smb.SmbFileInputStream;

@@ -1,4 +1,4 @@
-package com.hp.oo.content.commons.util;
+package io.cloudslang.content.rft.utils;
 
 import java.net.URI;
 

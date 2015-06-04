@@ -2,7 +2,7 @@
  * Copyright (c) iConclude 2004-2006
  * All rights reserved.
  */
-package com.iconclude.dharma.commons.security.ssh;
+package io.cloudslang.content.rft.ssh;
 
 /**
  * @author octavian

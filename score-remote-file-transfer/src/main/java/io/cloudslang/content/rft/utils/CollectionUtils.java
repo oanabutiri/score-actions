@@ -1,7 +1,7 @@
 /*
  * Created on Jul 26, 2005 by xban
  */
-package com.iconclude.dharma.commons.util;
+package io.cloudslang.content.rft.utils;
 
 import java.util.*;
 

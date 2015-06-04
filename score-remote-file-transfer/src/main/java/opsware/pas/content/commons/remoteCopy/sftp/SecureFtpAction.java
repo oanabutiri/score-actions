@@ -1,4 +1,4 @@
-package com.opsware.pas.content.commons.remoteCopy.sftp;
+package opsware.pas.content.commons.remoteCopy.sftp;
 /*
  * @(#)SecureFtpAction.java	11.14 10/07/2006
 *

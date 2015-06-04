@@ -15,8 +15,8 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 
-import com.hp.oo.content.commons.util.Address;
-import com.iconclude.dharma.commons.util.StringUtils;
+import io.cloudslang.content.rft.utils.Address;
+import io.cloudslang.content.rft.utils.StringUtils;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
