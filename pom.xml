@@ -169,6 +169,5 @@
         <module>score-data-format</module>
         <module>score-utilities</module>
         <module>score-remote-file-transfer</module>
-        <module>score-content-unified-commons</module>
     </modules>
 </project>

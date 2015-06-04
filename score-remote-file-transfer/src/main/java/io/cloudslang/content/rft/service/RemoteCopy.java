@@ -8,6 +8,8 @@ import opsware.pas.content.commons.remoteCopy.CopierFactory.copiers;
 import opsware.pas.content.commons.remoteCopy.ICopier;
 import opsware.pas.content.commons.remoteCopy.ICopier.simpleArgument;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
 import java.util.HashMap;
@@ -41,33 +43,35 @@ public class RemoteCopy {
     private String fileType;
     private boolean passive;
 
-    public Map<String, String> execute(RemoteCopyInputs remoteCopyInputs) throws Exception {
+    public Map<String, String> execute(RemoteCopyInputs remoteCopyInputs)  {
         Map<String, String> result = new HashMap<String, String>();
+        try {
+            processInputs(remoteCopyInputs);
 
-        processInputs(remoteCopyInputs);
+            ICopier src = CopierFactory.getExecutor(sourceProtocol);
+            ICopier dest = CopierFactory.getExecutor(destinationProtocol);
 
-        ICopier src = CopierFactory.getExecutor(sourceProtocol);
-        ICopier dest = CopierFactory.getExecutor(destinationProtocol);
+            checkOptions(sourceProtocol, sourceHost, fileType);
+            checkOptions(destinationProtocol, destinationHost, fileType);
 
-        checkOptions(sourceProtocol, sourceHost, fileType);
-        checkOptions(destinationProtocol, destinationHost, fileType);
+            setCredentials(src, sourceHost, sourcePort, sourceUsername, sourcePassword, sourcePrivateKeyFile);
+            setCredentials(dest, destinationHost, destinationPort, destinationUsername, destinationPassword, destinationPrivateKeyFile);
 
-        setCredentials(src, sourceHost, sourcePort, sourceUsername, sourcePassword, sourcePrivateKeyFile);
-        setCredentials(dest, destinationHost, destinationPort, destinationUsername, destinationPassword, destinationPrivateKeyFile);
+            setAndValidateCharacterSet(src, sourceCharacterSet, RemoteCopyInputs.SRC_CHARACTERSET);
+            setAndValidateCharacterSet(dest, destinationCharacterSet, RemoteCopyInputs.DEST_CHARACTERSET);
 
-        setAndValidateCharacterSet(src, sourceCharacterSet, RemoteCopyInputs.SRC_CHARACTERSET);
-        setAndValidateCharacterSet(dest, destinationCharacterSet, RemoteCopyInputs.DEST_CHARACTERSET);
+            setCustomArgumentForFTP(src, dest, sourceProtocol, destinationProtocol, fileType, passive);
 
-        setCustomArgumentForFTP(src, dest, sourceProtocol, destinationProtocol, fileType, passive);
+            setTimeout(src, sourceTimeout);
+            setTimeout(dest, destinationTimeout);
 
-        setTimeout(src, sourceTimeout);
-        setTimeout(dest, destinationTimeout);
+            src.copyTo(dest, sourcePath, destinationPath);
+            result.put(RemoteCopyOutputs.RETURN_RESULT, "Copy completed successfully");
+            result.put(RemoteCopyOutputs.RETURN_CODE, RemoteCopyOutputs.SUCCESS_RETURN_CODE);
 
-        src.copyTo(dest, sourcePath, destinationPath);
-        result.put(RemoteCopyOutputs.RETURN_RESULT, "Copy completed successfully");
-        result.put(RemoteCopyOutputs.RETURN_CODE, RemoteCopyOutputs.SUCCESS_RETURN_CODE);
-
-
+        } catch (Exception e) {
+            return exceptionResult(e.getMessage(), e);
+        }
         return result;
     }
 
@@ -96,6 +100,18 @@ public class RemoteCopy {
         fileType = remoteCopyInputs.getFileType();
 
         passive = resolveOptionalBoolean(RemoteCopyInputs.PASSIVE, remoteCopyInputs.getPassive(), false);
+    }
+
+    private Map<String, String> exceptionResult(String message, Exception e) {
+        StringWriter writer = new StringWriter();
+        e.printStackTrace(new PrintWriter(writer));
+        String eStr = writer.toString().replace("\u0000", "");
+
+        Map<String, String> returnResult = new HashMap<String, String>();
+        returnResult.put(RemoteCopyOutputs.RETURN_RESULT, message);
+        returnResult.put(RemoteCopyOutputs.RETURN_CODE, RemoteCopyOutputs.FAILURE_RETURN_CODE);
+        returnResult.put(RemoteCopyOutputs.EXCEPTION, eStr);
+        return returnResult;
     }
 
     private void checkOptions(String copier, String host, String type) throws Exception {

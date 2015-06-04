@@ -52,7 +52,7 @@ public class RemoteCopyAction {
             @Param(value = RemoteCopyInputs.DEST_TIMEOUT) String destinationTimeout,
             @Param(value = RemoteCopyInputs.FILE_TYPE) String fileType,
             @Param(value = RemoteCopyInputs.PASSIVE) String passive
-    ) throws Exception {
+    ) {
         RemoteCopyInputs remoteCopyInputs = new RemoteCopyInputs();
         remoteCopyInputs.setSourceHost(sourceHost);
         remoteCopyInputs.setSourcePort(sourcePort);
@@ -75,22 +75,9 @@ public class RemoteCopyAction {
         remoteCopyInputs.setFileType(fileType);
         remoteCopyInputs.setPassive(passive);
 
-        try {
-            return new RemoteCopy().execute(remoteCopyInputs);
-        } catch (Exception e) {
-            return exceptionResult(e.getMessage(), e);
-        }
+        return new RemoteCopy().execute(remoteCopyInputs);
+
     }
 
-    private Map<String, String> exceptionResult(String message, Exception e) {
-        StringWriter writer = new StringWriter();
-        e.printStackTrace(new PrintWriter(writer));
-        String eStr = writer.toString().replace("\u0000", "");
 
-        Map<String, String> returnResult = new HashMap<String, String>();
-        returnResult.put(RemoteCopyOutputs.RETURN_RESULT, message);
-        returnResult.put(RemoteCopyOutputs.RETURN_CODE, RemoteCopyOutputs.FAILURE_RETURN_CODE);
-        returnResult.put(RemoteCopyOutputs.EXCEPTION, eStr);
-        return returnResult;
-    }
 }
