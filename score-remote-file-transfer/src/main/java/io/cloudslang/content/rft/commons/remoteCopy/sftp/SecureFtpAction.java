@@ -1,4 +1,4 @@
-package opsware.pas.content.commons.remoteCopy.sftp;
+package io.cloudslang.content.rft.commons.remoteCopy.sftp;
 /*
  * @(#)SecureFtpAction.java	11.14 10/07/2006
 *

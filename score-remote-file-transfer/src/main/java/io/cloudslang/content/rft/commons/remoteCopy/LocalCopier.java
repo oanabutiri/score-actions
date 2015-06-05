@@ -1,4 +1,4 @@
-package opsware.pas.content.commons.remoteCopy;
+package io.cloudslang.content.rft.commons.remoteCopy;
 
 /**
  * </p> Copies a file to/from the local host.
@@ -9,7 +9,7 @@ package opsware.pas.content.commons.remoteCopy;
  * @version  2.1, 19 May 2008, modified by Cristina Nistor
  */
 
-import opsware.pas.content.commons.FSUtil;
+import io.cloudslang.content.rft.commons.FSUtil;
 
 import java.io.File;
 

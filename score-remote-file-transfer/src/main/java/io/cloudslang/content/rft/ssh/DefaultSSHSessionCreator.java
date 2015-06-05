@@ -57,8 +57,8 @@ public class DefaultSSHSessionCreator implements SSHSessionCreator {
 
         String username = userCfg.getFirst();
         String password = userCfg.getSecond();
-        if (!StringUtils.isEmpty(pkfile)) {
-            String passphrase = StringUtils.isEmpty(password) ? null : password;
+        if (!StringUtils.isNull(pkfile)) {
+            String passphrase = StringUtils.isNull(password) ? null : password;
             secureShell.addIdentity(pkfile, passphrase);
         }
 
@@ -106,7 +106,7 @@ public class DefaultSSHSessionCreator implements SSHSessionCreator {
                 port = portInt;
             }
         }
-        if (StringUtils.isEmpty(hostname)) {
+        if (StringUtils.isNull(hostname)) {
             throw new DharmaException(Dharma.msg("Dharma.security.ssh.DefaultSSHSessionCreator.UnspecifiedHostnameError")); //$NON-NLS-1$
         }
         return new Pair<String, Integer>(hostname, port);
@@ -114,7 +114,7 @@ public class DefaultSSHSessionCreator implements SSHSessionCreator {
 
     protected String getPrivateKeyFile(Map bindings) {
         String pkfile = StringUtils.trim((String) bindings.get("PKFile"));
-        if (StringUtils.isEmpty(pkfile))
+        if (StringUtils.isNull(pkfile))
             return pkfile;
         pkfile = StringUtils.trimTrailing(pkfile, '\\');
         pkfile = StringUtils.trimTrailing(pkfile, '/');

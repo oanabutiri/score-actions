@@ -1,8 +1,8 @@
-package opsware.pas.content.commons.remoteCopy;
+package io.cloudslang.content.rft.commons.remoteCopy;
 
 import io.cloudslang.content.rft.utils.Address;
 import com.jcraft.jsch.Session;
-import opsware.pas.content.commons.remoteCopy.sftp.SecureFtpAction;
+import io.cloudslang.content.rft.commons.remoteCopy.sftp.SecureFtpAction;
 import io.cloudslang.content.rft.utils.StringUtils;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package opsware.pas.content.commons.remoteCopy.sftp;
+package io.cloudslang.content.rft.commons.remoteCopy.sftp;
 
 import com.jcraft.jsch.*;
 import org.apache.log4j.Logger;

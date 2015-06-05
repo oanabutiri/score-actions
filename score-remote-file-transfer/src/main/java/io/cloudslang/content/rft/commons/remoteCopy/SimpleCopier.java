@@ -1,4 +1,4 @@
-package opsware.pas.content.commons.remoteCopy;
+package io.cloudslang.content.rft.commons.remoteCopy;
 import java.io.File;
 
 public abstract class SimpleCopier implements ICopier {

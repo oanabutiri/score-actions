@@ -13,17 +13,7 @@ public class StringUtils {
     public StringUtils() {
     }
 
-    /**
-     * Checks if a supplied String is null or empty.
-     *
-     * @param s String to check
-     * @return true if supplied string is null or empty
-     */
     public static boolean isNull(String s) {
-        return s == null || s.isEmpty();
-    }
-
-    public static boolean isEmpty(String s) {
         return (s == null || s.length() == 0);
     }
 
@@ -201,7 +191,7 @@ public class StringUtils {
      * or the original string otherwise.
      */
     public static String trimTrailing(String s, char trailingChar) {
-        if (isEmpty(s)) {
+        if (isNull(s)) {
             return s;
         }
         int len = s.length();

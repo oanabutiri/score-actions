@@ -1,4 +1,4 @@
-package opsware.pas.content.commons;
+package io.cloudslang.content.rft.commons;
 
 import java.io.File;
 import java.io.FileInputStream;

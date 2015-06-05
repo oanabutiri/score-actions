@@ -51,7 +51,7 @@ public class DefaultUserInfoProvider implements SSHUserInfoProvider {
     }
 
     public String getPassphrase() {
-        return StringUtils.isEmpty(passwd) ? null : passwd;
+        return StringUtils.isNull(passwd) ? null : passwd;
     }
 
     public boolean promptYesNo(String str) {

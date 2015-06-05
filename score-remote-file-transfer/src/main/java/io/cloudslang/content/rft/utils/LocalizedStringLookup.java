@@ -162,11 +162,11 @@ public class LocalizedStringLookup {
             LOG.debug("  didn't find bundle");
         }
 
-        if (StringUtils.isEmpty(msgFmt)) {
+        if (StringUtils.isNull(msgFmt)) {
             msgFmt = defaultString;
         }
 
-        if (StringUtils.isEmpty(msgFmt)) {
+        if (StringUtils.isNull(msgFmt)) {
             LOG.warn("Could not find message for key '" //$NON-NLS-1$
                     + key
                     + "' in resource bundle '" //$NON-NLS-1$

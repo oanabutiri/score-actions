@@ -1,4 +1,4 @@
-package opsware.pas.content.commons.remoteCopy;
+package io.cloudslang.content.rft.commons.remoteCopy;
 /**
  * </p> Copies a file to/from/between two remote hosts using SCP.
  * 
@@ -133,7 +133,7 @@ class SCPLocalOperationGet extends SSHOperation<DefaultSSHSessionCreator, SCPLoc
     protected Map bindOperation() {
         Map result = new HashMap();
 
-        if (StringUtils.isEmpty(srcHost)) {
+        if (StringUtils.isNull(srcHost)) {
             throw new DharmaException(SSHOperation.HOST + " not specified");
         }
         result.put(SSHOperation.HOST, srcHost);
@@ -542,7 +542,7 @@ class LocalSCPOperationPut extends SSHOperation<DefaultSSHSessionCreator, LocalS
     protected Map bindOperation() {
         Map result = new HashMap();
 
-        if (StringUtils.isEmpty(destHost)) {
+        if (StringUtils.isNull(destHost)) {
             throw new DharmaException(SSHOperation.HOST + " not specified");
         }
         result.put(SSHOperation.HOST, destHost);
@@ -562,7 +562,7 @@ class LocalSCPOperationPut extends SSHOperation<DefaultSSHSessionCreator, LocalS
         result.put(SSHOperation.TIMEOUT, String.valueOf(timeout));
 
         // Kerberos support: deserialize tickets and place them in the binding map
-        /*if (!CollectionUtils.isEmpty(tickets)) {
+        /*if (!CollectionUtils.isNull(tickets)) {
             result.put(SSHOperation.KRBTICKETS, tickets);
         }*/
         return result;
