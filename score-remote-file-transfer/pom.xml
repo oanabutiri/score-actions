@@ -151,6 +151,11 @@
     </profiles>
     <dependencies>
         <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
             <groupId>io.cloudslang.content</groupId>
             <artifactId>score-content-unified-commons</artifactId>
             <version>0.0.1-SNAPSHOT</version>
