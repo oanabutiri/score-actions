@@ -1,4 +1,4 @@
-package io.cloudslang.content.rft.commons;
+package io.cloudslang.content.rft.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -32,6 +32,31 @@ public class Address {
     String bareHost; // host, stripped of any trailing colon and port number
 
     /**
+     * Single-argument constructor. Note that host may contain a port (e.g.
+     * www.hp.com:22)
+     *
+     * @param hostWithOptionalPort
+     */
+    public Address(String hostWithOptionalPort) {
+        this(hostWithOptionalPort, null);
+    }
+
+    /**
+     * Constructor
+     * @param hostWithOptionalPort
+     * @param portFirstOption
+     */
+    public Address(String hostWithOptionalPort, String portFirstOption) {
+        if (hostWithOptionalPort != null)
+            this.hostWithOptionalPort = hostWithOptionalPort;
+
+        if (portFirstOption != null && !portFirstOption.isEmpty())
+            this.inputPort = Integer.parseInt(portFirstOption);
+
+        parse();
+    }
+
+    /**
      * Constructor
      * @param hostWithOptionalPort
      * @param portFirstOption

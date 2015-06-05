@@ -1,24 +1,15 @@
-package io.cloudslang.content.rft.commons.remoteCopy;
+package io.cloudslang.content.rft.commons;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import io.cloudslang.content.rft.utils.StringUtils;
+import io.cloudslang.content.rft.utils.Address;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPReply;
+
+import java.io.*;
 import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-
-
-import io.cloudslang.content.rft.utils.Address;
-import io.cloudslang.content.rft.utils.StringUtils;
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
 
 /**
  * </p> Performs a FTP Get/Post (copies a file to/from a remote host using FTP).

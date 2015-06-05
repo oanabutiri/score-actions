@@ -1,5 +1,8 @@
 package io.cloudslang.content.rft.commons.remoteCopy;
 
+import io.cloudslang.content.rft.commons.CopierFactory;
+import io.cloudslang.content.rft.commons.ICopier;
+import io.cloudslang.content.rft.commons.SmbCopier;
 import org.junit.Before;
 import org.junit.Test;
 import org.powermock.reflect.Whitebox;

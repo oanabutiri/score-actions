@@ -1,13 +1,14 @@
-package io.cloudslang.content.rft.utils;
+package io.cloudslang.content.rft.utilsTests;
 
-import com.hp.oo.content.commons.util.Address;
+import io.cloudslang.content.rft.utils.Address;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 
 public class AddressTest {
 
@@ -36,15 +37,15 @@ public class AddressTest {
     };
     @Test
     public void testIPV6() {
-        com.hp.oo.content.commons.util.Address address;
+        Address address;
         for (String host : hostsIPV6) {
-            address = new com.hp.oo.content.commons.util.Address(host, "23");
+            address = new Address(host, "23");
             host = stripBrackets(host);
             assertEquals(getAssetMessage("getBareHost", host, "23"), host, address.getBareHost());
             assertEquals(getAssetMessage("getPort", host, "23"), 23, address.getPort());
             if (!host.contains("%") && (host.startsWith("[") || host.split(":").length==8) ) {
                 for (String portSeparator : portSeparators) {
-                    address = new com.hp.oo.content.commons.util.Address(host + portSeparator + "23","");
+                    address = new Address(host + portSeparator + "23","");
                     assertEquals(getAssetMessage("getBareHost", host + portSeparator + "23", ""), host, address.getBareHost());
                     assertEquals(getAssetMessage("getPort", host + portSeparator + "23", ""),23, address.getPort());
                 }
@@ -52,55 +53,55 @@ public class AddressTest {
         }
 
         String ipv6LiteralPlusPort = "2002:1033:b516:c:2e27:d7ff:fe31:3552:23";
-        address = new com.hp.oo.content.commons.util.Address(ipv6LiteralPlusPort, "");
+        address = new Address(ipv6LiteralPlusPort, "");
         assertEquals(getAssetMessage("getBareHost", ipv6LiteralPlusPort, ""), "2002:1033:b516:c:2e27:d7ff:fe31:3552", address.getBareHost());
         assertEquals(getAssetMessage("getPort", ipv6LiteralPlusPort, ""), 23, address.getPort());
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void testInvalidIPv6MultiParentheses() {
-        new com.hp.oo.content.commons.util.Address("[[2000:1234:433c:1:6503:f416:fa98:8301]]");
+        new Address("[[2000:1234:433c:1:6503:f416:fa98:8301]]");
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void testInvalidIPv6BadPort() {
-        new com.hp.oo.content.commons.util.Address("[2000:1234:433c:1:6503:f416:fa98:8301]:P");
+        new Address("[2000:1234:433c:1:6503:f416:fa98:8301]:P");
     }
 
     @Test
     public void testNineTokens() {
-        com.hp.oo.content.commons.util.Address address = new com.hp.oo.content.commons.util.Address("2000:1234:433c:1:6503:f416:fa98:8301:443");
+        Address address = new Address("2000:1234:433c:1:6503:f416:fa98:8301:443");
         assertEquals(address.getBareHost(), "2000:1234:433c:1:6503:f416:fa98:8301");
     }
 
     @Test
     public void testJapan() {
-        com.hp.oo.content.commons.util.Address address = new com.hp.oo.content.commons.util.Address("五七桐");
+        Address address = new Address("五七桐");
         assertEquals(address.getBareHost(), "五七桐");
-        address = new com.hp.oo.content.commons.util.Address("五七桐:99");
+        address = new Address("五七桐:99");
         assertEquals(address.getBareHost(), "五七桐");
     }
 
     @Test
     public void testBareHostIPv6() {
-        com.hp.oo.content.commons.util.Address address = new com.hp.oo.content.commons.util.Address("[2000:1234:433c:1:6503:f416:fa98:8301]");
+        Address address = new Address("[2000:1234:433c:1:6503:f416:fa98:8301]");
         assertEquals(address.getBareHost(), "2000:1234:433c:1:6503:f416:fa98:8301");
-        address = new com.hp.oo.content.commons.util.Address("[2000:1234:433c:1:6503:f416:fa98:8301]:31");
+        address = new Address("[2000:1234:433c:1:6503:f416:fa98:8301]:31");
         assertEquals(address.getBareHost(), "2000:1234:433c:1:6503:f416:fa98:8301");
-        address = new com.hp.oo.content.commons.util.Address("localhost:31");
+        address = new Address("localhost:31");
         assertEquals(address.getBareHost(), "localhost");
 
     }
 
     @Test
     public void testIPV4() {
-        com.hp.oo.content.commons.util.Address address;
+        Address address;
         for (String host : hostsIPV4) {
-            address = new com.hp.oo.content.commons.util.Address(host, "23");
+            address = new Address(host, "23");
             assertEquals(getAssetMessage("getBareHost", host, "23"), host, address.getBareHost());
             assertEquals(getAssetMessage("getPort", host, "23"), 23, address.getPort());
 
-            address = new com.hp.oo.content.commons.util.Address(host + ":23","");
+            address = new Address(host + ":23","");
             assertEquals(getAssetMessage("getBareHost", host + ":23", ""), host, address.getBareHost());
             assertEquals(getAssetMessage("getPort", host + ":23", ""), 23, address.getPort());
         }
@@ -108,13 +109,13 @@ public class AddressTest {
 
     @Test
     public void testName() {
-        com.hp.oo.content.commons.util.Address address;
+        Address address;
         for (String host : hostsName) {
-            address = new com.hp.oo.content.commons.util.Address(host, "23");
+            address = new Address(host, "23");
             assertEquals(getAssetMessage("getBareHost", host, "23"), host, address.getBareHost());
             assertEquals(getAssetMessage("getPort", host, "23"), 23, address.getPort());
 
-            address = new com.hp.oo.content.commons.util.Address(host + ":23","");
+            address = new Address(host + ":23","");
             assertEquals(getAssetMessage("getBareHost", host + ":23", ""), host, address.getBareHost());
             assertEquals(getAssetMessage("getPort", host + ":23", ""), 23, address.getPort());
         }
@@ -122,25 +123,25 @@ public class AddressTest {
 
     @Test
     public void testNoPort() {
-        com.hp.oo.content.commons.util.Address address;
+        Address address;
         List<String> hosts = new ArrayList<String>();
         hosts.addAll(Arrays.asList(hostsIPV4));
         hosts.addAll(Arrays.asList(hostsIPV6));
         hosts.addAll(Arrays.asList(hostsName));
 
         for (String host : hosts) {
-            address = new com.hp.oo.content.commons.util.Address(host, "");
+            address = new Address(host, "");
             host = stripBrackets(host);
             assertEquals(getAssetMessage("getBareHost", host, ""), host, address.getBareHost());
 
-            address = new com.hp.oo.content.commons.util.Address(host, null);
+            address = new Address(host, null);
             assertEquals(getAssetMessage("getBareHost", host, null),host, address.getBareHost());
         }
     }
 
     @Test
     public void testHostPortURI() {
-        com.hp.oo.content.commons.util.Address address = new com.hp.oo.content.commons.util.Address("[::1]:8080");
+        Address address = new Address("[::1]:8080");
         assertEquals(address.getHostAndPortForURI(),"[::1]:8080");
         address = new Address("::1");
         assertEquals(address.getHostAndPortForURI(),"[::1]");

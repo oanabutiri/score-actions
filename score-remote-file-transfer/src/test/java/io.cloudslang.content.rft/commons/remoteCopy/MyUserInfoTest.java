@@ -1,6 +1,6 @@
-package io.cloudslang.content.rft.commons.remoteCopy.sftp;
+package io.cloudslang.content.rft.commons.remoteCopy;
 
-import com.opsware.pas.content.commons.remoteCopy.sftp.MyUserInfo;
+import io.cloudslang.content.rft.commons.sftp.MyUserInfo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import static junit.framework.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
 
 public class MyUserInfoTest {
-    private com.opsware.pas.content.commons.remoteCopy.sftp.MyUserInfo myUser;
+    private MyUserInfo myUser;
 
     @Before
     public void setUp() {
@@ -76,11 +76,4 @@ public class MyUserInfoTest {
         assertEquals(pass, myUser.getPassphrase());
     }
 
-    /**
-     * Tests the subject getter
-     */
-    @Test
-    public void testSubject() {
-        assertNull(myUser.getSubject());
-    }
 }

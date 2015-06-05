@@ -3,10 +3,10 @@ package io.cloudslang.content.rft.service;
 import io.cloudslang.content.rft.utils.StringUtils;
 import io.cloudslang.content.rft.utils.RemoteCopyInputs;
 import io.cloudslang.content.rft.utils.RemoteCopyOutputs;
-import io.cloudslang.content.rft.commons.remoteCopy.CopierFactory;
-import io.cloudslang.content.rft.commons.remoteCopy.CopierFactory.copiers;
-import io.cloudslang.content.rft.commons.remoteCopy.ICopier;
-import io.cloudslang.content.rft.commons.remoteCopy.ICopier.simpleArgument;
+import io.cloudslang.content.rft.commons.CopierFactory;
+import io.cloudslang.content.rft.commons.CopierFactory.copiers;
+import io.cloudslang.content.rft.commons.ICopier;
+import io.cloudslang.content.rft.commons.ICopier.simpleArgument;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

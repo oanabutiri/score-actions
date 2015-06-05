@@ -1,4 +1,4 @@
-package io.cloudslang.content.rft.commons.remoteCopy;
+package io.cloudslang.content.rft.commons;
 
 import io.cloudslang.content.rft.utils.Address;
 import jcifs.smb.NtlmPasswordAuthentication;

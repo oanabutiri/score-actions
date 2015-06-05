@@ -1,4 +1,4 @@
-package io.cloudslang.content.rft.commons.remoteCopy;
+package io.cloudslang.content.rft.commons;
 
 /**
  * </p> Copies a file to/from the local host.
@@ -9,7 +9,7 @@ package io.cloudslang.content.rft.commons.remoteCopy;
  * @version  2.1, 19 May 2008, modified by Cristina Nistor
  */
 
-import io.cloudslang.content.rft.commons.FSUtil;
+import io.cloudslang.content.rft.utils.FSUtil;
 
 import java.io.File;
 

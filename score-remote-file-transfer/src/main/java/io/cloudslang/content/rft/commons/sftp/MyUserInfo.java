@@ -1,8 +1,9 @@
-package io.cloudslang.content.rft.commons.remoteCopy.sftp;
+package io.cloudslang.content.rft.commons.sftp;
+
 
 import com.jcraft.jsch.UserInfo;
 
-public  class MyUserInfo implements UserInfo{
+public  class MyUserInfo implements UserInfo {
 
 	public String getPassword(){
 		return passwd; 
@@ -66,5 +67,24 @@ public  class MyUserInfo implements UserInfo{
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-    
- }
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public boolean isPromptYesNo() {
+		return promptYesNo;
+	}
+
+	public boolean isPromptPassphrase() {
+		return promptPassphrase;
+	}
+
+	public boolean isPromptPassword() {
+		return promptPassword;
+	}
+
+	public void setPromptPassphrase(boolean promptPassphrase) {
+		this.promptPassphrase = promptPassphrase;
+	}
+}

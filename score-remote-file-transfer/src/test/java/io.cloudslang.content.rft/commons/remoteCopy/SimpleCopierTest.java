@@ -1,5 +1,8 @@
 package io.cloudslang.content.rft.commons.remoteCopy;
 
+import io.cloudslang.content.rft.commons.ICopier;
+import io.cloudslang.content.rft.commons.IReader;
+import io.cloudslang.content.rft.commons.SimpleCopier;
 import org.junit.Before;
 import org.junit.Test;
 

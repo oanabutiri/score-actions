@@ -1,5 +1,6 @@
 package io.cloudslang.content.rft.commons.remoteCopy;
 
+import io.cloudslang.content.rft.commons.CopierFactory;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertNotNull;

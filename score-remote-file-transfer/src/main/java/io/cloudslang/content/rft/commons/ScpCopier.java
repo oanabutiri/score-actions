@@ -1,4 +1,4 @@
-package io.cloudslang.content.rft.commons.remoteCopy;
+package io.cloudslang.content.rft.commons;
 /**
  * </p> Copies a file to/from/between two remote hosts using SCP.
  * 

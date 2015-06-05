@@ -1,4 +1,4 @@
-package io.cloudslang.content.rft.commons.remoteCopy;
+package io.cloudslang.content.rft.commons;
 
 import java.util.HashMap;
 
